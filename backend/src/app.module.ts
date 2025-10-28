@@ -10,8 +10,8 @@ import { HealthController } from './health/health.controller';
 @Module({
   imports: [
     ThrottlerModule.forRoot([{
-      ttl: 60000, // 1 minute
-      limit: 10, // 10 requests per minute
+      ttl: parseInt(process.env.THROTTLE_TTL ?? '60000', 10), // default 1 minute
+      limit: parseInt(process.env.THROTTLE_LIMIT ?? '10', 10), // default 10 req/min
     }]),
     TerminusModule,
     TypeOrmModule.forRoot({

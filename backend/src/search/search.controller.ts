@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query, Body, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Query, Body, HttpCode, HttpStatus, Options } from '@nestjs/common';
 import { Throttle, SkipThrottle } from '@nestjs/throttler';
 import { SearchService } from './search.service';
 import { QuerySearchDto } from './dto/query-search.dto';
@@ -19,6 +19,12 @@ export class SearchController {
   async postSearch(@Body() bodyDto: CreateSearchDto) {
     return this.searchService.searchAndStore(bodyDto.query);
   }
+
+  // Explicit preflight handler to avoid 404/500 on OPTIONS
+  @Options()
+  @SkipThrottle()
+  @HttpCode(HttpStatus.NO_CONTENT)
+  preflight() {}
 
   @Get('history')
   async getHistory() {

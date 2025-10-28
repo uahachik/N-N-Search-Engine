@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import FindInPage from '@/components/FindInPage';
@@ -61,8 +61,11 @@ export default function HomePage() {
   };
 
   // Pagination logic
-  const totalPages = Math.ceil(results.length / RESULTS_PER_PAGE) || 1;
-  const pagedResults = results.slice((page - 1) * RESULTS_PER_PAGE, page * RESULTS_PER_PAGE);
+  const totalPages = useMemo(() => Math.ceil(results.length / RESULTS_PER_PAGE) || 1, [results.length]);
+  const pagedResults = useMemo(
+    () => results.slice((page - 1) * RESULTS_PER_PAGE, page * RESULTS_PER_PAGE),
+    [results, page]
+  );
 
   const goToPage = (p: number) => {
     if (p < 1 || p > totalPages) return;

@@ -13,6 +13,9 @@ export default function FindInPage({ results, onHighlight }: Props) {
   const [totalMatches, setTotalMatches] = useState(0);
 
   useEffect(() => {
+    // Helper to escape regex special characters in the search term
+    const escapeRegExp = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
     if (!findTerm.trim()) {
       // Clear highlights
       onHighlight('', 0, 0);
@@ -22,7 +25,7 @@ export default function FindInPage({ results, onHighlight }: Props) {
     }
 
     // Count matches
-    const term = findTerm.toLowerCase();
+    const term = escapeRegExp(findTerm.toLowerCase());
     let count = 0;
     results.forEach((r) => {
       const titleMatches = (r.title.toLowerCase().match(new RegExp(term, 'g')) || []).length;
@@ -40,7 +43,7 @@ export default function FindInPage({ results, onHighlight }: Props) {
       setCurrentMatch(0);
       onHighlight(findTerm, 0, count);
     }
-  }, [findTerm, results, onHighlight]);
+  }, [findTerm, results]);
 
   const goToNext = () => {
     if (totalMatches === 0) return;

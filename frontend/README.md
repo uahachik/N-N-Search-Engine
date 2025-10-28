@@ -60,3 +60,10 @@ src/
 - Search with saving: keep the checkbox enabled (default).
 - History page shows saved searches.
 - Health page shows backend health.
+
+### Testing Pagination & Find-in-Page
+
+To test pagination and find-in-page features with many results:
+- **Search for "test" or "demo"** - This will generate 25 fake results (3 pages with 10 results per page)
+- Use the pagination controls to navigate between pages
+- Use the "Find in results" field to highlight matches across results

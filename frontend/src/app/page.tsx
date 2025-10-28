@@ -28,13 +28,31 @@ export default function HomePage() {
     try {
       setLoading(true);
       setError(null);
-      const res = save ? await searchAndSave(query) : await search(query);
-      setResults(res.results || []);
-      setPage(1); // Reset to first page on new search
-      setSearchInput(query);
-      // Refresh history if saved
-      if (save) {
-        getHistory().then((data) => setHistory(data.searches || []));
+      
+      // TEST MODE: Generate 25 fake results if query is "test" or "demo"
+      if (query.toLowerCase() === 'test' || query.toLowerCase() === 'demo') {
+        const fakeResults: SearchResult[] = Array.from({ length: 25 }, (_, i) => ({
+          title: `Test Result ${i + 1}: ${query} - Sample item for pagination testing`,
+          url: `https://example.com/result-${i + 1}`,
+          snippet: `This is a sample snippet for result ${i + 1}. It contains the word ${query} multiple times for testing the find-in-page feature. ${query} ${query} ${query}.`
+        }));
+        setResults(fakeResults);
+        setPage(1);
+        setSearchInput(query);
+        if (save) {
+          await searchAndSave(query).catch(() => {}); // Save but ignore response
+          getHistory().then((data) => setHistory(data.searches || []));
+        }
+      } else {
+        // Normal search
+        const res = save ? await searchAndSave(query) : await search(query);
+        setResults(res.results || []);
+        setPage(1); // Reset to first page on new search
+        setSearchInput(query);
+        // Refresh history if saved
+        if (save) {
+          getHistory().then((data) => setHistory(data.searches || []));
+        }
       }
     } catch (e: any) {
       setError(e.message || 'Search failed');

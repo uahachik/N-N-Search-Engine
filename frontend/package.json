@@ -1,6 +1,7 @@
 {
-  "name": "frontend",
+  "name": "nn-search-engine-frontend",
   "version": "1.0.0",
+  "description": "Next.js frontend for N&N Search Engine with React Hook Form, pagination, and interactive search history",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -11,10 +12,24 @@
     "lint:check": "tsc --noEmit",
     "type-check": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "nextjs",
+    "react",
+    "search-engine",
+    "react-hook-form",
+    "typescript",
+    "app-router"
+  ],
+  "author": "Roman Kotenko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uahachik/N-N-Search-Engine.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",

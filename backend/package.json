@@ -1,6 +1,8 @@
 {
-  "name": "backend",
+  "name": "nn-search-engine-backend",
   "version": "1.0.0",
+  "description": "NestJS backend service for N&N Search Engine with DuckDuckGo API integration and PostgreSQL history tracking",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "nest start",
@@ -14,10 +16,25 @@
     "lint:check": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,apps,libs,test}/**/*.ts\"",
     "type-check": "tsc --noEmit"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "nestjs",
+    "search-engine",
+    "duckduckgo",
+    "typeorm",
+    "postgresql",
+    "rest-api",
+    "typescript"
+  ],
+  "author": "Roman Kotenko",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uahachik/N-N-Search-Engine.git"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "@nestjs/cli": "^10.2.1",
     "@nestjs/common": "^10.2.10",

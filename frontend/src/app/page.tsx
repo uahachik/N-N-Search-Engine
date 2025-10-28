@@ -21,7 +21,7 @@ export default function HomePage() {
 
   // Fetch history on mount
   useEffect(() => {
-    getHistory().then((data) => setHistory(data.searches || []));
+    getHistory().then((data) => setHistory(data.history || []));
   }, []);
 
   const onSearch = async (query: string, save = true) => {
@@ -41,7 +41,7 @@ export default function HomePage() {
         setSearchInput(query);
         if (save) {
           await searchAndSave(query).catch(() => {}); // Save but ignore response
-          getHistory().then((data) => setHistory(data.searches || []));
+          getHistory().then((data) => setHistory(data.history || []));
         }
       } else {
         // Normal search
@@ -51,7 +51,7 @@ export default function HomePage() {
         setSearchInput(query);
         // Refresh history if saved
         if (save) {
-          getHistory().then((data) => setHistory(data.searches || []));
+          getHistory().then((data) => setHistory(data.history || []));
         }
       }
     } catch (e: any) {

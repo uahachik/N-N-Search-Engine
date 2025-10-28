@@ -15,7 +15,7 @@ export type HistoryItem = {
 };
 
 export type HistoryResponse = {
-  searches: HistoryItem[];
+  history: HistoryItem[];
 };
 
 export type HealthResponse = {

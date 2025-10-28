@@ -71,7 +71,7 @@ export class SearchService {
       }));
       
       return { history };
-    } catch (error) {
+    } catch (_error) {
       throw new HttpException(
         'Error fetching search history',
         HttpStatus.INTERNAL_SERVER_ERROR,

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import FindInPage from '@/components/FindInPage';
-import HistoryList from '@/components/HistoryList';
 import { search, searchAndSave, getHistory } from '@/lib/api';
 import type { SearchResult, HistoryItem } from '@/lib/types';
 

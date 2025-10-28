@@ -29,6 +29,15 @@ npm run build
 npm start
 ```
 
+## Code Quality
+
+### Linting & Type Checking
+```bash
+npm run lint        # Run TypeScript type checking
+npm run lint:check  # Run TypeScript type checking (same as lint)
+npm run type-check  # Run TypeScript compiler check (no emit)
+```
+
 ## Configuration
 
 - Configure backend base URL via `NEXT_PUBLIC_API_BASE_URL` in `.env.local`.

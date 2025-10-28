@@ -67,6 +67,19 @@ npm run build        # Build the application
 npm run start:prod   # Start the production server
 ```
 
+## Code Quality
+
+### Linting
+```bash
+npm run lint        # Run ESLint with auto-fix
+npm run lint:check  # Run ESLint without auto-fix
+```
+
+### Type Checking
+```bash
+npm run type-check  # Run TypeScript compiler check (no emit)
+```
+
 ## API Endpoints
 
 All endpoints are prefixed with `/api`

@@ -26,11 +26,12 @@ export default function FindInPage({ results, onHighlight }: Props) {
 
     // Count matches
     const term = escapeRegExp(findTerm.toLowerCase());
+    const regex = new RegExp(term, 'g');
     let count = 0;
     results.forEach((r) => {
-      const titleMatches = (r.title.toLowerCase().match(new RegExp(term, 'g')) || []).length;
+      const titleMatches = (r.title.toLowerCase().match(regex) || []).length;
       const snippetMatches = r.snippet
-        ? (r.snippet.toLowerCase().match(new RegExp(term, 'g')) || []).length
+        ? (r.snippet.toLowerCase().match(regex) || []).length
         : 0;
       count += titleMatches + snippetMatches;
     });

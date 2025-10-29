@@ -8,8 +8,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,app}/**/*.{ts,tsx}\" --fix",
-    "lint:check": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,app}/**/*.{ts,tsx}\"",
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,app}/**/*.{ts,tsx}\"",
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,app}/**/*.{ts,tsx}\" --fix",
     "type-check": "tsc --noEmit"
   },
   "keywords": [

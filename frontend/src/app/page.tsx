@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import SearchForm from '@/components/SearchForm';
 import SearchResults from '@/components/SearchResults';
 import FindInPage from '@/components/FindInPage';
@@ -79,10 +79,10 @@ export default function HomePage() {
   };
 
   // Handle find-in-page highlighting
-  const handleHighlight = (term: string, currentIndex: number, totalMatches: number) => {
+  const handleHighlight = useCallback((term: string, currentIndex: number, _totalMatches: number) => {
     setHighlightTerm(term);
     setCurrentMatchIndex(currentIndex);
-  };
+  }, []);
 
   return (
     <div style={{ display: 'flex', gap: 24 }}>

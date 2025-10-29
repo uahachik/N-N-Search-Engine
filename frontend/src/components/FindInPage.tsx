@@ -43,7 +43,7 @@ export default function FindInPage({ results, onHighlight }: Props) {
       setCurrentMatch(0);
       onHighlight(findTerm, 0, count);
     }
-  }, [findTerm, results]);
+  }, [findTerm, results, onHighlight]);
 
   const goToNext = () => {
     if (totalMatches === 0) return;

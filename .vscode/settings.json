@@ -1,0 +1,7 @@
+{
+  "eslint.useFlatConfig": false,
+  "eslint.workingDirectories": [
+    "./backend",
+    "./frontend"
+  ]
+}
